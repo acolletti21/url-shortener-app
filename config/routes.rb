@@ -24,5 +24,6 @@ Rails.application.routes.draw do
  delete '/links/:id' => 'links#destroy'
  get '/users/sign_out' => 'users#destroy'
  
+ get '/:slug' => 'visits#create'
 
 end
