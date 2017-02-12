@@ -1,0 +1,23 @@
+<h1>Your links</h1>
+
+<table>
+  <tr>
+    <th>Slug</th>
+    <th>Target URL</th>
+    <th>Created At</th>
+  </tr>
+
+  <p class = "create_btn"><%= link_to "Create New Link", "/links/new", class: "btn btn-success" %></p>
+  <% @links.each do |link| %>
+    <tr>
+      <td><%= link.slug %></td>
+      <td><%= link.target_url %></td>
+      <td><%= link.created_at.strftime("%b %d, %Y %l:%m %p")%></td>
+      <div class="btn-group" role="group" aria-label="...">
+        <%= link_to "Edit", "/links/#{link.id}/edit", class: "btn btn-primary" %>
+        <%= link_to "Delete", "/links/#{link.id}", class: "btn btn-danger", method: :delete %>
+        <%= link_to "Link Visits", "/links/#{link.id}", class: "btn btn-warning" %>
+      </div>
+    </tr>
+  <% end %>
+
