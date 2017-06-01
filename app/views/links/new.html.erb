@@ -1,23 +1,27 @@
-<h1>Create New Link</h1>
+<div class="col-md-8 col-sm-offset-2" style="padding: 50px; padding-top: 100px">
+  <div class="post-image" style="box-shadow:1px 5px 8px #a88888; padding: 25px; background-color: #fff; opacity: 0.8">
+    <h1>Create New Link</h1>
 
-<% if @link.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
- 
-    <ul>
-    <% @link.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% if @link.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
+     
+        <ul>
+        <% @link.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
-    </ul>
+
+    <%= form_tag "/links" do %>
+      <%= label_tag :slug %>
+      <%= text_field_tag :slug, @link.slug %>
+
+      <%= label_tag :target_url %>
+      <%= text_field_tag :target_url, @link.target_url %>
+
+      <%= submit_tag "Create Link" %>
+    <% end %>
   </div>
-<% end %>
-
-<%= form_tag "/links" do %>
-  <%= label_tag :slug %>
-  <%= text_field_tag :slug, @link.slug %>
-
-  <%= label_tag :target_url %>
-  <%= text_field_tag :target_url, @link.target_url %>
-
-  <%= submit_tag "Create Link" %>
-<% end %>
+</div>

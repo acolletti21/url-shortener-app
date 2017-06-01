@@ -7,8 +7,8 @@ class LinksController < ApplicationController
 
   def show
     @link = Link.find_by(
-                          :id => params[:id], 
-                          :user_id => current_user.id)
+                          id: params[:id], 
+                          user_id: current_user.id)
 
     unless @link
       flash[:warning] = "Link was not found"
@@ -64,7 +64,9 @@ class LinksController < ApplicationController
   end
 
   def destroy
-    @link = Link.find_by(:id => params[:id], :user_id => current_user.id)
+    @link = Link.find_by(
+                        id: params[:id], 
+                        user_id: current_user.id)
 
     if @link && @link.destroy
       flash[:success] = "Link destroyed successfully"

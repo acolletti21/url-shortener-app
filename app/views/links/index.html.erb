@@ -1,23 +1,26 @@
-<h1>Your links</h1>
+<div class="col-md-8 col-sm-offset-2" style="padding: 50px; padding-top: 100px">
+  <div class="post-image" style="box-shadow:1px 5px 8px #a88888; padding: 25px; background-color: #fff; opacity: 0.8">
+    <h1>Your links</h1>
 
-<table>
-  <tr>
-    <th>Slug</th>
-    <th>Target URL</th>
-    <th>Created At</th>
-  </tr>
+    <table>
+      <tr>
+        <th>Slug</th>
+        <th>Target URL</th>
+        <th>Created At</th>
+      </tr>
 
-  <p class = "create_btn"><%= link_to "Create New Link", "/links/new", class: "btn btn-success" %></p>
-  <% @links.each do |link| %>
-    <tr>
-      <td><%= link.slug %></td>
-      <td><%= link.target_url %></td>
-      <td><%= link.created_at.strftime("%b %d, %Y %l:%m %p")%></td>
-      <div class="btn-group" role="group" aria-label="...">
-        <%= link_to "Edit", "/links/#{link.id}/edit", class: "btn btn-primary" %>
-        <%= link_to "Delete", "/links/#{link.id}", class: "btn btn-danger", method: :delete %>
-        <%= link_to "Link Visits", "/links/#{link.id}", class: "btn btn-warning" %>
-      </div>
-    </tr>
-  <% end %>
-
+      <p class = "create_btn"><%= link_to "Create New Link", "/links/new", class: "btn btn-success" %></p>
+      <% @links.each do |link| %>
+        <tr>
+          <td><%= link.slug %></td>
+          <td><%= link.target_url %></td>
+          <td><%= link.created_at.strftime("%b %d, %Y %l:%m %p")%></td>
+          <div class="btn-group" role="group" aria-label="...">
+            <%= link_to "Edit", "/links/#{link.id}/edit", class: "btn btn-primary" %>
+            <%= link_to "Delete", "/links/#{link.id}", class: "btn btn-danger", method: :delete %>
+            <%= link_to "Link Visits", "/links/#{link.id}", class: "btn btn-warning" %>
+          </div>
+        </tr>
+      <% end %>
+  </div>
+</div>
